@@ -5,7 +5,9 @@
 <title>Welcome</title>
 </head>
 <body>
-Welcome ${name} !!!
+<p>Welcome ${name} !!!</p>
+<p>Your Todo's are</p>
+<p>${todos}</p>
 </body>
 </html>
 
