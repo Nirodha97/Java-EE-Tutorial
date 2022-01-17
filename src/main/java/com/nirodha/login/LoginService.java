@@ -1,6 +1,6 @@
-package com.nirodha;
+package com.nirodha.login;
 
-public class UserValidationService {
+public class LoginService {
 
 	public boolean isUserValid (String name, String password) {
 		

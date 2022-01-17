@@ -1,4 +1,4 @@
-package com.nirodha;
+package com.nirodha.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,7 +14,7 @@ import com.nirodha.todo.TodoService;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
-	  private UserValidationService userValidationService = new UserValidationService();
+	  private LoginService loginService = new LoginService();
 	  private TodoService todoService = new TodoService();
 	
 	  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -25,15 +25,15 @@ public class LoginServlet extends HttpServlet {
 	  
 	  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		  
-		  
 		  String name = request.getParameter("name");
 		  String password = request.getParameter("password");
 		  
-		  boolean isUserValid= userValidationService.isUserValid(name, password);
+		  boolean isUserValid= loginService.isUserValid(name, password);
+		  
 		  if(isUserValid) {
-				request.setAttribute("name", name);
-				request.setAttribute("todos",todoService.retrieveTodos());
-				request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response); 
+			    System.out.println(isUserValid);
+				response.sendRedirect("/todo.do");
+			///todo.do
 		  }
 		  
 		  else {
