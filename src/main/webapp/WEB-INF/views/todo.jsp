@@ -16,6 +16,12 @@
 	</c:forEach>
 
 </ol>
+
+<hr>
+
+<form action="/todo.do" method="post">
+<input type="text" name="todo"><input type="submit" value="ADD"/>
+</form>
 </body>
 </html>
 
